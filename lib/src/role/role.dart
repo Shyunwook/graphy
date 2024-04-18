@@ -17,7 +17,7 @@ abstract class Role<B extends Behavior, Data> extends PlayerPlugin<B, Data> {
 
   @override
   void play(Data data, B min, B max) {
-    ActorModel actor = ActorInfo.of(_context).model;
+    final ActorModel actor = ActorInfo.of(_context).model;
 
     this.role(actor, data, _context);
   }

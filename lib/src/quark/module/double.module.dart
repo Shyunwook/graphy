@@ -1,7 +1,6 @@
+import 'package:graphy/src/quark/behavior/double.behavior.dart';
+import 'package:graphy/src/quark/module_type/module_type.dart';
 import 'package:quark/muabe_quark.dart';
-
-import '../behavior/double.behavior.dart';
-import '../module_type/module_type.dart';
 
 class DoubleModule extends Module<DoubleBehavior> {
   final double? min;

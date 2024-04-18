@@ -1,5 +1,5 @@
+import 'package:graphy/src/quark/behavior/double.behavior.dart';
 import 'package:quark/core/module.dart';
-import '../behavior/double.behavior.dart';
 
 class DoubleModuleType extends ModuleType<DoubleBehavior> {
   DoubleModuleType() : super();

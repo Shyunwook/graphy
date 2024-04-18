@@ -13,7 +13,7 @@ class Actor extends StatefulWidget {
     super.key,
     this.name,
     this.target,
-    this.initialPosition = const Offset(0, 0),
+    this.initialPosition = Offset.zero,
     required this.child,
   });
 

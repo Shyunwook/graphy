@@ -4,13 +4,15 @@ import 'package:quark/muabe_quark.dart';
 class DoubleBehavior extends Behavior<double> {
   DoubleBehavior(super.value);
 
-  DoubleBehavior.infinity({String? behaviorID})
-      : super.infinity(behaviorID: behaviorID);
+  DoubleBehavior.infinity({super.behaviorID}) : super.infinity();
 
   @override
   Comparison compare(Behavior<double> behavior) {
-    return Comparison(value == behavior.value, value > behavior.value,
-        value < behavior.value);
+    return Comparison(
+      value == behavior.value,
+      value > behavior.value,
+      value < behavior.value,
+    );
   }
 
   @override

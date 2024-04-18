@@ -1,5 +1,5 @@
-import '../quark/module/module.dart';
-import '../quark/translator/translator.dart';
+import 'package:graphy/src/quark/module/module.dart';
+import 'package:graphy/src/quark/translator/translator.dart';
 
 class DragHorizontalModule extends DoubleModule {
   DragHorizontalModule({

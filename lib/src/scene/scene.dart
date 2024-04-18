@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:graphy/src/actor/actor.dart';
 import 'package:graphy/src/scene/scene_info.dart';
-
-import '../actor/actor.dart';
 
 class Scene extends StatelessWidget {
   final List<Actor> actors;

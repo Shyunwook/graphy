@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphy/src/actor/actor_model.dart';
-
-import '../quark/behavior/behavior.dart';
-import 'role.dart';
+import 'package:graphy/src/quark/behavior/behavior.dart';
+import 'package:graphy/src/role/role.dart';
 
 class MoveHorizontalRole extends Role<DoubleBehavior, double> {
   MoveHorizontalRole({super.transformation});

@@ -1,10 +1,9 @@
 import 'package:graphy/graphy.dart';
 import 'package:graphy/src/role/move_horizontal.role.dart';
+import 'package:graphy/src/role/role.dart';
+import 'package:graphy/src/sign/sign.dart';
 import 'package:quark/core/module.dart';
 import 'package:quark/muabe_quark.dart' as quark;
-
-import '../role/role.dart';
-import '../sign/sign.dart';
 
 typedef Scenario = quark.Element;
 
@@ -21,10 +20,10 @@ abstract class ScenarioController {
 
 class ScenarioGenerator {
   Scenario withSign() {
-    SignType type = SignType.gesture;
+    const SignType type = SignType.gesture;
 
-    Module module = DragHorizontalModule(min: 0, max: 100);
-    Role role = MoveHorizontalRole();
+    final Module module = DragHorizontalModule(min: 0, max: 100);
+    final Role role = MoveHorizontalRole();
 
     module.addPlayer(role);
 

@@ -1,6 +1,5 @@
+import 'package:graphy/src/scenario/scenario_controller.dart';
 import 'package:quark/muabe_quark.dart';
-
-import '../scenario/scenario_controller.dart';
 
 class Combine {
   static Scenario or(List<Element> list) {
