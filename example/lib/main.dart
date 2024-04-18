@@ -17,18 +17,20 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: SafeArea(
           child: Scene(
             actors: [
               Actor(
                 name: 'BOBBY',
-                child: EmptyChild(),
+                scenarioController: BobbyScenario(),
+                child: const EmptyChild(),
               ),
               Actor(
-                initialPosition: Offset(200, 0),
-                child: EmptyChild(),
+                initialPosition: const Offset(200, 0),
+                scenarioController: BobbyScenario(),
+                child: const EmptyChild(),
               ),
             ],
           ),
@@ -41,29 +43,15 @@ class _MainAppState extends State<MainApp> {
 class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
-    // SignType.Module.Role
-
-    // // Preset
-    // var scenario = generator.preset.moveHorizontalWithDragHorizontal;
-
-    // // Semi
-    // scenario = generator.withSign(
-    //   DragHorizontal(),
-    //   MoveHorizontal(),
-    // );
-
-    // // Manual
-    // scenario = generator.withSignTypeAndModule(
-    //   [GestureSign()],
-    //   DragHorizontalModule(),
-    //   MoveHorizontal(),
-    // );
-
-    // return scenario;
-
-    return ScenarioGenerator().withSign();
-
-    throw UnimplementedError();
+    return generator.withSignTypeAndModule(
+      [
+        SignType.gesture,
+      ],
+      DragHorizontalModule(min: 0, max: 100),
+      [
+        MoveHorizontalRole(),
+      ],
+    );
   }
 }
 

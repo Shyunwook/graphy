@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:graphy/graphy.dart';
 import 'package:graphy/src/actor/actor_info.dart';
 import 'package:graphy/src/actor/actor_model.dart';
+import 'package:graphy/src/quark/action/offset.action.dart';
 import 'package:graphy/src/scene/scene_info.dart';
 
 class Actor extends StatefulWidget {
   final String? name;
   final String? target;
   final Offset initialPosition;
+  final ScenarioController scenarioController;
   final Widget child;
 
   const Actor({
@@ -14,6 +17,7 @@ class Actor extends StatefulWidget {
     this.name,
     this.target,
     this.initialPosition = Offset.zero,
+    required this.scenarioController,
     required this.child,
   });
 
@@ -40,6 +44,8 @@ class _ActorState extends State<Actor> {
       child: ListenableBuilder(
         listenable: _actorModel,
         builder: (innerContext, _) {
+          widget.scenarioController.initialize(innerContext);
+
           if (widget.name != null) {
             SceneInfo.of(innerContext).setActor(
               name: widget.name!,
