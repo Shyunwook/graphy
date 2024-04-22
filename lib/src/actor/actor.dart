@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:graphy/graphy.dart';
 import 'package:graphy/src/actor/actor_info.dart';
 import 'package:graphy/src/actor/actor_model.dart';
-import 'package:graphy/src/quark/action/offset.action.dart';
 import 'package:graphy/src/scene/scene_info.dart';
 
 class Actor extends StatefulWidget {
