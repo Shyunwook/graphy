@@ -43,15 +43,24 @@ class _MainAppState extends State<MainApp> {
 class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
-    return generator.withSignTypeAndModule(
-      [
-        SignType.gesture,
-      ],
-      DragHorizontalModule(min: 0, max: 100),
-      [
-        MoveHorizontalRole(),
-      ],
+    Scenario horizontalDragHorizontalMove = generator.withSign(
+      SignCollection().gestureSign.dragHorizontal(),
+      // Role().colorChange().rotate(),
+      // [Role().moveHorizontalRole(), Role().moveVerticalRole()]
+      // Role().moveHorizontalRole().moveVerticalRole() ==> 이걸로 우선 시도해보자
     );
+
+    Scenario gyroscopeXHorizontalMove = generator.withSign(
+      SignCollection().sensorSign.accelerometerX(),
+      roles,
+    );
+
+    Scenario horizontalDragHorizontalMove2 = generator.withSignTypeAndModule(
+      [SignType.gesture],
+      DragHorizontalModule(min: 0, max: 100),
+      roles,
+    );
+    return Combine.and([]);
   }
 }
 
