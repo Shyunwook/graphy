@@ -44,25 +44,36 @@ class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
     Scenario horizontalDragHorizontalMove = generator.withSign(
-      SignCollection().gestureSign.dragHorizontal(),
+      GestureSign.dragRight(),
+      [],
       // Role().colorChange().rotate(),
       // [Role().moveHorizontalRole(), Role().moveVerticalRole()]
       // Role().moveHorizontalRole().moveVerticalRole() ==> 이걸로 우선 시도해보자
     );
 
-    Scenario gyroscopeXHorizontalMove = generator.withSign(
-      SignCollection().sensorSign.accelerometerX(),
-      roles,
+    Scenario test = generator.withSignTypeAndModule(
+      [
+        DragGestureDetector(),
+      ],
+      DragHorizontalModule(),
+      [],
     );
 
-    Scenario horizontalDragHorizontalMove2 = generator.withSignTypeAndModule(
-      [SignType.gesture],
-      DragHorizontalModule(min: 0, max: 100),
-      roles,
-    );
+    // Scenario gyroscopeXHorizontalMove = generator.withSign(
+    //   SignCollection().sensorSign.accelerometerX(),
+    //   roles,
+    // );
+
+    // Scenario horizontalDragHorizontalMove2 = generator.withSignTypeAndModule(
+    //   [SignType.gesture],
+    //   DragHorizontalModule(min: 0, max: 100),
+    //   roles,
+    // );
     return Combine.and([]);
   }
 }
+
+class CustomGestureDetectorType {}
 
 class EmptyChild extends StatelessWidget {
   const EmptyChild({super.key});

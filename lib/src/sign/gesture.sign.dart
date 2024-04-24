@@ -1,19 +1,14 @@
 import 'package:graphy/graphy.dart';
-import 'package:graphy/src/sign/sign_type.dart';
+import 'package:graphy/src/detector/gesture/drag_gesture_detector.dart';
+import 'package:graphy/src/detector/types/gesture.detector_type.dart';
 
-class GestureSign extends GestureSignType {
-  Sign dragHorizontal({
-    double? min,
-    double? max,
-  }) {
-    return createSign(DragHorizontalModule());
-  }
+class GestureSign extends Sign<GestureDetectorType> {
+  GestureSign._({required super.detector, required super.module});
 
-  // TODO DragVerticalModule로 수정 예정
-  Sign dragVertical({
-    double? min,
-    double? max,
-  }) {
-    return createSign(DragHorizontalModule());
+  factory GestureSign.dragRight() {
+    return GestureSign._(
+      detector: DragGestureDetector(),
+      module: DragHorizontalModule(),
+    );
   }
 }

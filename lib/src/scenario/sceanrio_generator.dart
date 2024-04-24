@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphy/graphy.dart';
+import 'package:graphy/src/detector/gesture/drag_gesture_detector.dart';
 import 'package:graphy/src/role/role.dart';
 import 'package:quark/core/module.dart';
 
@@ -12,15 +13,19 @@ class ScenarioGenerator {
     Sign sign,
     List<Role> roles,
   ) {
-    return withSignTypeAndModule([sign.type], sign.module, roles);
+    return withSignTypeAndModule([sign.detector], sign.module, roles);
   }
 
   // Manual
   Scenario withSignTypeAndModule(
-    List<SignType> types,
+    List<Detector> detectors,
     Module module,
     List<Role> roles,
   ) {
+    for (final Detector detector in detectors) {
+      // print((detector as DragGestureDetector).recognizerType);
+    }
+
     _addRoles(module, roles);
     return module;
   }
