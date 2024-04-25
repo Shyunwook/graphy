@@ -1,12 +1,30 @@
-// import 'package:graphy/graphy.dart';
-// import 'package:graphy/src/sign/sign_type.dart';
+import 'package:graphy/graphy.dart';
+import 'package:graphy/src/detector/types/sensor.detector_type.dart';
 
-// class SensorSign extends SensorSignType {
-//   // TODO AccelerometerXModule로 수정 예정;
-//   Sign accelerometerX({
-//     double? min,
-//     double? max,
-//   }) {
-//     return createSign(DragHorizontalModule());
-//   }
-// }
+// TODO DEMO 코드
+class SensorSign extends Sign<SensorDetectorType> {
+  SensorSign._({required super.detector, required super.module});
+
+  factory SensorSign.accelerometerX({double? min, double? max}) {
+    return SensorSign._(
+      detector: DemoSensorDetector(),
+      module: DragHorizontalModule(
+        min: min,
+        max: max,
+      ),
+    );
+  }
+}
+
+class DemoSensorDetector extends SensorDetectorType<int> {
+  @override
+  void Function(int p1) get callback => throw UnimplementedError();
+
+  @override
+  Detection<int> get detection => throw UnimplementedError();
+
+  @override
+  void start() {
+    // detection.start();
+  }
+}

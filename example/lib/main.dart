@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:graphy/graphy.dart';
 
 void main() {
@@ -45,6 +46,7 @@ class BobbyScenario extends ScenarioController {
   Scenario create() {
     Scenario horizontalDragHorizontalMove = generator.withSign(
       GestureSign.dragRight(),
+      collection.gesture.dragRight()
       [],
       // Role().colorChange().rotate(),
       // [Role().moveHorizontalRole(), Role().moveVerticalRole()]
@@ -59,21 +61,9 @@ class BobbyScenario extends ScenarioController {
       [],
     );
 
-    // Scenario gyroscopeXHorizontalMove = generator.withSign(
-    //   SignCollection().sensorSign.accelerometerX(),
-    //   roles,
-    // );
-
-    // Scenario horizontalDragHorizontalMove2 = generator.withSignTypeAndModule(
-    //   [SignType.gesture],
-    //   DragHorizontalModule(min: 0, max: 100),
-    //   roles,
-    // );
     return Combine.and([]);
   }
 }
-
-class CustomGestureDetectorType {}
 
 class EmptyChild extends StatelessWidget {
   const EmptyChild({super.key});
