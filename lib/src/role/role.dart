@@ -5,20 +5,20 @@ import 'package:quark/muabe_quark.dart';
 
 abstract class Role<B extends Behavior, Data> extends PlayerPlugin<B, Data> {
   final Transformation<B, Data>? transformation;
-  late final BuildContext _context;
+  late BuildContext _context;
+  late ActorModel _actor;
 
   Role({this.transformation}) : super(transformation ?? SimplePlayTransform());
 
   void initialize(BuildContext context) {
     this._context = context;
+    _actor = ActorInfo.of(_context).model;
   }
 
   void role(ActorModel actor, Data value, BuildContext context);
 
   @override
   void play(Data data, B min, B max) {
-    final ActorModel actor = ActorInfo.of(_context).model;
-
-    this.role(actor, data, _context);
+    this.role(_actor, data, _context);
   }
 }

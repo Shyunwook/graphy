@@ -1,11 +1,17 @@
-import 'package:graphy/src/detector/detector.dart';
+import 'package:flutter/material.dart';
+import 'package:graphy/graphy.dart';
 
 abstract class GestureDetectorType extends Detector {
-  String get recognizerType;
-  String get recognizer;
+  Type get recognizerType;
+  GestureRecognizerFactoryWithHandlers get recognizer;
 
   @override
-  void start() {
-    print(controller);
+  void start(ScenarioController controller) {
+    super.controller = controller;
+
+    controller.gestures.putIfAbsent(
+      recognizerType,
+      () => recognizer,
+    );
   }
 }

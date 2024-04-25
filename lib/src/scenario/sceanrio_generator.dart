@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:graphy/graphy.dart';
-import 'package:graphy/src/detector/gesture/drag_gesture_detector.dart';
 import 'package:graphy/src/role/role.dart';
 import 'package:quark/core/module.dart';
 
 class ScenarioGenerator {
+  final ScenarioController controller;
   final BuildContext context;
 
-  ScenarioGenerator({required this.context});
+  ScenarioGenerator({
+    required this.controller,
+    required this.context,
+  });
 
+  // Semi
   Scenario withSign(
     Sign sign,
     List<Role> roles,
@@ -23,7 +27,7 @@ class ScenarioGenerator {
     List<Role> roles,
   ) {
     for (final Detector detector in detectors) {
-      // print((detector as DragGestureDetector).recognizerType);
+      detector.start(controller);
     }
 
     _addRoles(module, roles);

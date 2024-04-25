@@ -24,7 +24,7 @@ class DemoSensorDetector extends SensorDetectorType<int> {
   Detection<int> get detection => throw UnimplementedError();
 
   @override
-  void start() {
+  void start(ScenarioController controller) {
     // detection.start();
   }
 }

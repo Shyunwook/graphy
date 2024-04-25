@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:graphy/graphy.dart';
 
 void main() {
@@ -45,23 +44,14 @@ class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
     Scenario horizontalDragHorizontalMove = generator.withSign(
-      GestureSign.dragRight(),
-      Roles().moveHorizontal().moveHorizontal().get(),
+      GestureSign.dragHorizontal(
+        min: 0,
+        max: 200,
+      ),
+      Roles().moveHorizontal().toList(),
     );
 
-    Scenario test = generator.withSignTypeAndModule(
-      [
-        DragGestureDetector(),
-        ...Detectors().dragGesture().dragGesture().get(),
-      ],
-      DragHorizontalModule(),
-      [
-        MoveHorizontalRole(),
-        MoveHorizontalRole(),
-      ],
-    );
-
-    return Combine.and([]);
+    return horizontalDragHorizontalMove;
   }
 }
 

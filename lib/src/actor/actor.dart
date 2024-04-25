@@ -54,7 +54,10 @@ class _ActorState extends State<Actor> {
           return Positioned(
             left: _actorModel.currentPosition.dx,
             top: _actorModel.currentPosition.dy,
-            child: widget.child,
+            child: RawGestureDetector(
+              gestures: widget.scenarioController.gestures,
+              child: widget.child,
+            ),
           );
         },
       ),
