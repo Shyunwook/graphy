@@ -46,19 +46,19 @@ class BobbyScenario extends ScenarioController {
   Scenario create() {
     Scenario horizontalDragHorizontalMove = generator.withSign(
       GestureSign.dragRight(),
-      collection.gesture.dragRight()
-      [],
-      // Role().colorChange().rotate(),
-      // [Role().moveHorizontalRole(), Role().moveVerticalRole()]
-      // Role().moveHorizontalRole().moveVerticalRole() ==> 이걸로 우선 시도해보자
+      Roles().moveHorizontal().moveHorizontal().get(),
     );
 
     Scenario test = generator.withSignTypeAndModule(
       [
         DragGestureDetector(),
+        ...Detectors().dragGesture().dragGesture().get(),
       ],
       DragHorizontalModule(),
-      [],
+      [
+        MoveHorizontalRole(),
+        MoveHorizontalRole(),
+      ],
     );
 
     return Combine.and([]);

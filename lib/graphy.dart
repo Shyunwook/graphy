@@ -1,4 +1,5 @@
 export './src/actor.dart';
+export './src/collector.dart';
 export './src/detector.dart';
 export './src/module.dart';
 export './src/quark/combine.dart';
