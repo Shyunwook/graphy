@@ -10,6 +10,9 @@ typedef Scenario = quark.Element;
 abstract class ScenarioController {
   late Quark quark;
   late ScenarioGenerator generator;
+  late BuildContext context;
+  bool needInitialized = true;
+
   final Map<Type, GestureRecognizerFactory<GestureRecognizer>> _gestures = {};
 
   Map<Type, GestureRecognizerFactory<GestureRecognizer>> get gestures =>
@@ -18,11 +21,14 @@ abstract class ScenarioController {
   Scenario create();
 
   void initialize(BuildContext context) {
+    this.context = context;
+
     generator = ScenarioGenerator(
       controller: this,
-      context: context,
     );
 
     quark = Quark(create());
+
+    needInitialized = false;
   }
 }

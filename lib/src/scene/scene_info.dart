@@ -19,11 +19,11 @@ class SceneInfo extends InheritedWidget {
     return false;
   }
 
+  /// 다른 Actor에 의해 컨트롤 될 수 있도록 타겟 Actor 명단에 등록하기 위한 메소드
   void setActor({
     required String name,
     required BuildContext context,
   }) {
-    // actor의 context는 변경 될 수 있기 때문에 putIfAbsent를 사용하지 않고 덮어쓴다.
     _actors[name] = context;
   }
 }

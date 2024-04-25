@@ -43,7 +43,9 @@ class _ActorState extends State<Actor> {
       child: ListenableBuilder(
         listenable: _actorModel,
         builder: (innerContext, _) {
-          widget.scenarioController.initialize(innerContext);
+          if (widget.scenarioController.needInitialized) {
+            widget.scenarioController.initialize(innerContext);
+          }
 
           if (widget.name != null) {
             SceneInfo.of(innerContext).setActor(
@@ -51,6 +53,7 @@ class _ActorState extends State<Actor> {
               context: innerContext,
             );
           }
+
           return Positioned(
             left: _actorModel.currentPosition.dx,
             top: _actorModel.currentPosition.dy,

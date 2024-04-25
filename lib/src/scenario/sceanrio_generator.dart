@@ -1,15 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:graphy/graphy.dart';
 import 'package:graphy/src/role/role.dart';
 import 'package:quark/core/module.dart';
 
 class ScenarioGenerator {
   final ScenarioController controller;
-  final BuildContext context;
 
   ScenarioGenerator({
     required this.controller,
-    required this.context,
   });
 
   // Semi
@@ -36,7 +33,7 @@ class ScenarioGenerator {
 
   void _addRoles(Module module, List<Role> roles) {
     for (final role in roles) {
-      role.initialize(context);
+      role.initialize(controller.context);
       module.addPlayer(role);
     }
   }
