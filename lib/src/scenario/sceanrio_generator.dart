@@ -1,4 +1,5 @@
 import 'package:graphy/graphy.dart';
+import 'package:graphy/src/detector/detector.dart';
 import 'package:graphy/src/role/role.dart';
 import 'package:quark/core/module.dart';
 
@@ -9,6 +10,7 @@ class ScenarioGenerator {
     required this.controller,
   });
 
+  // TODO 메소드 이름 수정
   // Semi
   Scenario withSign(
     Sign sign,

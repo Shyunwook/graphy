@@ -1,6 +1,7 @@
 import 'package:graphy/graphy.dart';
 import 'package:graphy/src/collector/collector.dart';
 import 'package:graphy/src/collector/collector_manager.dart';
+import 'package:graphy/src/detector/detector.dart';
 
 class Detectors extends Collector<Detector>
     with CollectorManager<Detectors, Detector> {

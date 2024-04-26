@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphy/graphy.dart';
+import 'package:graphy/src/detector/detector.dart';
 
 abstract class GestureDetectorType extends Detector {
   Type get recognizerType;
