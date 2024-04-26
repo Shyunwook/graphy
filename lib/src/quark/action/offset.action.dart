@@ -10,7 +10,10 @@ class OffsetAction extends ActionPlugin<Offset> {
   @override
   Comparison compare(ActionPlugin<Offset> action) {
     return Comparison(
-        value == action.value, value > action.value, value < action.value);
+      value == action.value,
+      value > action.value,
+      value < action.value,
+    );
   }
 
   @override
