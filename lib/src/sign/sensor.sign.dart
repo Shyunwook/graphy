@@ -1,4 +1,5 @@
 import 'package:graphy/graphy.dart';
+import 'package:graphy/src/detector/sensor/detection/detection.dart';
 import 'package:graphy/src/detector/types/sensor.detector_type.dart';
 
 // TODO DEMO 코드

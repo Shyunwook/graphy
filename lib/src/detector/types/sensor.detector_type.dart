@@ -1,9 +1,19 @@
 import 'package:graphy/src/detector/detector.dart';
+import 'package:graphy/src/detector/sensor/detection/detection.dart';
+import 'package:graphy/src/scenario/scenario_controller.dart';
 
-// TODO 예시 코드 작성 - 이런식으로 동작할거다
 abstract class SensorDetectorType<T> extends Detector {
-  void Function(T) get callback;
+  void Function(T event) get callback;
   Detection<T> get detection;
-}
 
-class Detection<T> {}
+  SensorDetectorType() {
+    detection.addCallback(callback);
+  }
+
+  @override
+  void start(ScenarioController controller) {
+    this.controller = controller;
+
+    detection.startDetecting();
+  }
+}

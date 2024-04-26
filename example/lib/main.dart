@@ -43,11 +43,17 @@ class _MainAppState extends State<MainApp> {
 class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
-    Scenario horizontalDragHorizontalMove = generator.withSign(
-      GestureSign.dragHorizontal(
-        min: 0,
-        max: 200,
-      ),
+    Scenario horizontalDragHorizontalMove =
+        // generator.withSign(
+        //   GestureSign.dragHorizontal(
+        //     min: 0,
+        //     max: 200,
+        //   ),
+        //   Roles().moveHorizontal().toList(),
+        // );
+        generator.withSignTypeAndModule(
+      Detectors().accelerometer().toList(),
+      DragHorizontalModule(),
       Roles().moveHorizontal().toList(),
     );
 

@@ -13,6 +13,8 @@ dependencies:
   quark:
     git:
       url: https://github.com/muabe/Quark.git
+  sensors_plus: ^5.0.1
+  vector_math: ^2.1.4
 
 dev_dependencies:
   flutter_test:

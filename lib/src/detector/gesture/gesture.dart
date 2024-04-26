@@ -1,1 +1,1 @@
-export './drag_gesture_detector.dart';
+export 'drag_gesture.detector.dart';

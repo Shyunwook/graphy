@@ -1,6 +1,7 @@
 import 'package:graphy/graphy.dart';
 import 'package:graphy/src/collector/collector.dart';
 import 'package:graphy/src/collector/collector_manager.dart';
+import 'package:graphy/src/detector.dart';
 import 'package:graphy/src/detector/detector.dart';
 
 class Detectors extends Collector<Detector>
@@ -14,7 +15,13 @@ class Detectors extends Collector<Detector>
 }
 
 extension DetectorsExtensions on Detectors {
+  // Gesture
   Detectors dragGesture() => addCollection(
         DragGestureDetector(),
+      );
+
+  // Sensor
+  Detectors accelerometer() => addCollection(
+        AccelerometerDetector(),
       );
 }

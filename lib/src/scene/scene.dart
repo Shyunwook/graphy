@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:graphy/src/actor/actor.dart';
+import 'package:graphy/graphy.dart';
 import 'package:graphy/src/scene/scene_info.dart';
 
-class Scene extends StatelessWidget {
+class Scene extends StatefulWidget {
   final List<Actor> actors;
 
   const Scene({
@@ -11,10 +11,23 @@ class Scene extends StatelessWidget {
   });
 
   @override
+  State<Scene> createState() => _SceneState();
+}
+
+class _SceneState extends State<Scene> {
+  @override
+  void dispose() {
+    super.dispose();
+
+    // sensor detector dispose
+    AccelerometerDetection.instance.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SceneInfo(
       child: Stack(
-        children: actors,
+        children: widget.actors,
       ),
     );
   }
