@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:graphy/graphy.dart';
 import 'package:graphy/src/actor/actor_info.dart';
 import 'package:graphy/src/scenario/sceanrio_generator.dart';
 import 'package:graphy/src/scene/scene_info.dart';
@@ -55,6 +54,6 @@ abstract class ScenarioController {
   void play(List<ActionPlugin<dynamic>> actions) {
     quark.play(actions);
 
-    targetController?.play(actions);
+    targetController?.quark.play(actions);
   }
 }

@@ -15,6 +15,11 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
+  /// build 안에서 controller 인스턴스 생성하면, rebuild 시 모델이 재생성되어
+  /// player로 넘어가는 value가 초기화 될 것임
+  final s1 = BobbyScenario();
+  final s2 = BobbyScenario2();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,13 +29,13 @@ class _MainAppState extends State<MainApp> {
             actors: [
               Actor(
                 name: 'BOBBY',
-                scenarioController: BobbyScenario(),
+                scenarioController: s1,
                 child: const EmptyChild(),
               ),
               Actor(
                 target: 'BOBBY',
                 initialPosition: const Offset(200, 0),
-                scenarioController: BobbyScenario2(),
+                scenarioController: s2,
                 child: const EmptyChild(),
               ),
             ],
