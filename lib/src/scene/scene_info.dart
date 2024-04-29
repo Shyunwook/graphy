@@ -26,4 +26,8 @@ class SceneInfo extends InheritedWidget {
   }) {
     _actors[name] = context;
   }
+
+  BuildContext? getTarget(String name) {
+    return _actors[name];
+  }
 }

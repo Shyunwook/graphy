@@ -6,7 +6,7 @@ import 'package:sensors_plus/sensors_plus.dart';
 class AccelerometerDetector extends SensorDetectorType<AccelerometerEvent> {
   @override
   void Function(AccelerometerEvent event) get callback => (event) {
-        controller.quark.play(
+        controller.play(
           [AccelerometerEventAction(event)],
         );
       };

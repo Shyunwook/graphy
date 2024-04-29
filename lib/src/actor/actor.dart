@@ -30,6 +30,7 @@ class _ActorState extends State<Actor> {
   @override
   void initState() {
     _actorModel = ActorModel(
+      controller: widget.scenarioController,
       initialPosition: widget.initialPosition,
     );
 
@@ -44,7 +45,10 @@ class _ActorState extends State<Actor> {
         listenable: _actorModel,
         builder: (innerContext, _) {
           if (widget.scenarioController.needInitialized) {
-            widget.scenarioController.initialize(innerContext);
+            widget.scenarioController.initialize(
+              innerContext,
+              widget.target,
+            );
           }
 
           if (widget.name != null) {

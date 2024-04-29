@@ -28,8 +28,9 @@ class _MainAppState extends State<MainApp> {
                 child: const EmptyChild(),
               ),
               Actor(
+                target: 'BOBBY',
                 initialPosition: const Offset(200, 0),
-                scenarioController: BobbyScenario(),
+                scenarioController: BobbyScenario2(),
                 child: const EmptyChild(),
               ),
             ],
@@ -43,18 +44,25 @@ class _MainAppState extends State<MainApp> {
 class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
-    Scenario horizontalDragHorizontalMove =
-        // generator.withSign(
-        //   GestureSign.dragHorizontal(
-        //     min: 0,
-        //     max: 200,
-        //   ),
-        //   Roles().moveHorizontal().toList(),
-        // );
-        generator.withSignTypeAndModule(
-      Detectors().accelerometer().toList(),
-      DragHorizontalModule(),
+    Scenario horizontalDragHorizontalMove = generator.withSignTypeAndModule(
+      Detectors().dragGesture().toList(),
+      DragHorizontalModule(
+        min: 0,
+        max: 200,
+      ),
       Roles().moveHorizontal().toList(),
+    );
+
+    return horizontalDragHorizontalMove;
+  }
+}
+
+class BobbyScenario2 extends ScenarioController {
+  @override
+  Scenario create() {
+    Scenario horizontalDragHorizontalMove = generator.withSign(
+      GestureSign.dragHorizontal(min: 0, max: 400),
+      [],
     );
 
     return horizontalDragHorizontalMove;

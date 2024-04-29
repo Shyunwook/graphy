@@ -13,7 +13,7 @@ class DragGestureDetector extends GestureDetectorType {
         () => ScaleGestureRecognizer(),
         (instance) {
           instance.onUpdate = (details) {
-            controller.quark.play(
+            controller.play(
               [
                 OffsetAction(details.focalPointDelta),
               ],
