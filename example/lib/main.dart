@@ -50,8 +50,8 @@ class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
     Scenario horizontalDragHorizontalMove = generator.withSignTypeAndModule(
-      Detectors().dragGesture().toList(),
-      DragHorizontalModule(
+      Detectors().accelerometer().toList(),
+      AccelerometerXModule(
         min: 0,
         max: 200,
       ),
