@@ -13,8 +13,6 @@ class AccelerometerDetection extends Detection<AccelerometerEvent> {
 
   bool _initialized = false;
 
-  Map<int, void Function(AccelerometerEvent)> callbacks = {};
-
   StreamSubscription<AccelerometerEvent>? subscription;
   Stream<AccelerometerEvent> listener = accelerometerEventStream(
     samplingPeriod: const Duration(
@@ -41,10 +39,5 @@ class AccelerometerDetection extends Detection<AccelerometerEvent> {
     subscription?.cancel();
     callbacks.clear();
     _initialized = false;
-  }
-
-  @override
-  void addCallback(Function(AccelerometerEvent event) callback) {
-    callbacks.putIfAbsent(callback.hashCode, () => callback);
   }
 }
