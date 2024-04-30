@@ -49,7 +49,7 @@ class _MainAppState extends State<MainApp> {
 class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
-    Scenario horizontalDragHorizontalMove = generator.withSignTypeAndModule(
+    Scenario horizontalDragHorizontalMove = generateWithModule(
       Detectors().accelerometer().toList(),
       AccelerometerXModule(
         min: 0,
@@ -65,7 +65,7 @@ class BobbyScenario extends ScenarioController {
 class BobbyScenario2 extends ScenarioController {
   @override
   Scenario create() {
-    Scenario horizontalDragHorizontalMove = generator.withSign(
+    Scenario horizontalDragHorizontalMove = generate(
       GestureSign.dragHorizontal(min: 0, max: 400),
       [],
     );
