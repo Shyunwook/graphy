@@ -24,8 +24,6 @@ abstract class ScenarioController {
   Map<Type, GestureRecognizerFactory<GestureRecognizer>> get gestures =>
       _gestures;
 
-  Scenario create();
-
   void initialize(BuildContext context, String? target) {
     _context = context;
     _quark = Quark(create());
@@ -86,4 +84,6 @@ abstract class ScenarioController {
       },
     );
   }
+
+  Scenario create();
 }
