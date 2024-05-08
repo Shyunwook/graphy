@@ -1,4 +1,4 @@
 // barrel file
 
-export './gesture.sign.dart';
-export './sensor.sign.dart';
+export 'event.sign.dart';
+export 'gesture.sign.dart';
