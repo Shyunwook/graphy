@@ -14,7 +14,10 @@ abstract class EventDetectorType<T> extends Detector {
     final EventStreamManager<T> manager = eventStreamManager;
 
     manager.initialize(controller);
-    manager.addCallback(runtimeType, callback);
-    manager.startStream(runtimeType);
+
+    // EventStreamManager의 runtimeType을 기준으로 callback과
+    // callback을 실행할 stream이 결정된다
+    manager.addCallback(eventStreamManager.runtimeType, callback);
+    manager.startStream(eventStreamManager.runtimeType);
   }
 }
