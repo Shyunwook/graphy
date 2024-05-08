@@ -7,7 +7,7 @@ import 'package:sensors_plus/sensors_plus.dart';
 class AccelerometerDetector extends EventDetectorType<AccelerometerEvent> {
   @override
   void Function(AccelerometerEvent event) get callback => (event) {
-        controller.play(
+        controller?.play(
           [AccelerometerEventAction(event)],
         );
       };
@@ -15,4 +15,15 @@ class AccelerometerDetector extends EventDetectorType<AccelerometerEvent> {
   @override
   EventStreamManager<AccelerometerEvent> get eventStreamManager =>
       AccelerometerEventStream();
+}
+
+class Test extends EventDetectorType<AccelerometerEvent> {
+  @override
+  // TODO: implement callback
+  void Function(AccelerometerEvent event) get callback => (event) {};
+
+  @override
+  // TODO: implement eventStreamManager
+  EventStreamManager<AccelerometerEvent> get eventStreamManager =>
+      throw UnimplementedError();
 }

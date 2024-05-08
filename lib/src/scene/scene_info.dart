@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:graphy/src/scene/scene_stream_manager.dart';
 
 class SceneInfo extends InheritedWidget {
   final Map<String, BuildContext> _actors = {};
+  final SceneStreamManager sceneStreamManager;
 
-  SceneInfo({super.key, required super.child});
+  SceneInfo({
+    super.key,
+    required this.sceneStreamManager,
+    required super.child,
+  });
 
   static SceneInfo? maybeOf(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<SceneInfo>();

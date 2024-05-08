@@ -12,6 +12,7 @@ dependencies:
   flutter_animate: ^4.5.0
   graphy:
     path: ../
+  go_router:
 
 dev_dependencies:
   flutter_test:

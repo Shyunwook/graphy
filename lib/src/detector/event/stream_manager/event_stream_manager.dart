@@ -1,29 +1,22 @@
 import 'dart:async';
 
-abstract class EventStreamManager<T> {
-  final Map<int, void Function(T)> _callbacks = {};
+import 'package:graphy/graphy.dart';
+import 'package:graphy/src/scene/scene_info.dart';
 
-  StreamSubscription<T>? _subscription;
+abstract class EventStreamManager<T> {
+  SceneInfo? sceneInfo;
+
+  void initialize(ScenarioController controller) {
+    sceneInfo = controller.sceneInfo;
+  }
+
+  void addCallback(Type owner, Function(T event) callback) {
+    this.sceneInfo?.sceneStreamManager.addCallback(owner, callback);
+  }
 
   /// Scenario generator에서 Scenario가 생성될 때 실행되는 메소드
-  void startStream() {
-    _subscription ??= stream.listen(
-      (event) {
-        _callbacks.forEach((key, callback) {
-          callback(event);
-        });
-      },
-    );
-  }
-
-  void dispose() {
-    _subscription?.cancel();
-    _subscription = null;
-    _callbacks.clear();
-  }
-
-  void addCallback(Function(T event) callback) {
-    _callbacks.putIfAbsent(callback.hashCode, () => callback);
+  void startStream(Type owner) {
+    sceneInfo?.sceneStreamManager.addSubscription(owner, stream);
   }
 
   Stream<T> get stream;

@@ -20,7 +20,7 @@ extension DetectorsExtensions on Detectors {
         DragGestureDetector(),
       );
 
-  // Sensor
+  // Event
   Detectors accelerometer() => addCollection(
         AccelerometerDetector(),
       );

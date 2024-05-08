@@ -13,11 +13,13 @@ typedef Scenario = Element;
 abstract class ScenarioController {
   late Quark _quark;
   late BuildContext _context;
+  late SceneInfo _sceneInfo;
 
   ScenarioController? _targetController;
 
   bool _needInitialized = true;
   bool get needInitialized => _needInitialized;
+  SceneInfo get sceneInfo => _sceneInfo;
 
   // GestureDetectorType 세팅 될 때 recognizer가 추가됨
   final Map<Type, GestureRecognizerFactory<GestureRecognizer>> _gestures = {};
@@ -26,7 +28,10 @@ abstract class ScenarioController {
 
   void initialize(BuildContext context, String? target) {
     _context = context;
+
+    _sceneInfo = SceneInfo.of(context);
     _quark = Quark(create());
+
     _setTargetScenarioController(context, target);
 
     _needInitialized = false;
