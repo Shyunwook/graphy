@@ -20,7 +20,7 @@ class _SceneState extends State<Scene> {
     super.dispose();
 
     // sensor detector dispose
-    AccelerometerDetection.instance.dispose();
+    AccelerometerEventStream.instance.dispose();
   }
 
   @override

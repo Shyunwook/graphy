@@ -1,11 +1,11 @@
 import 'package:graphy/graphy.dart';
-import 'package:graphy/src/detector/types/sensor.detector_type.dart';
+import 'package:graphy/src/detector/types/event.detector_type.dart';
 
-class SensorSign extends Sign<SensorDetectorType> {
-  SensorSign._({required super.detector, required super.module});
+class EventSign extends Sign<EventDetectorType> {
+  EventSign._({required super.detector, required super.module});
 
-  factory SensorSign.accelerometerX({double? min, double? max}) {
-    return SensorSign._(
+  factory EventSign.accelerometerX({double? min, double? max}) {
+    return EventSign._(
       detector: AccelerometerDetector(),
       module: AccelerometerXModule(
         min: min,

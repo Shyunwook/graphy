@@ -1,1 +1,0 @@
-export './accelerometer.detection.dart';

@@ -1,2 +1,2 @@
-export './gesture/gesture.dart';
-export './sensor/sensor.dart';
+export 'event/event.dart';
+export 'gesture/gesture.dart';
