@@ -38,23 +38,23 @@ class _ActorState extends State<Actor> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext _) {
     return ActorInfo(
       model: _actorModel,
       child: ListenableBuilder(
         listenable: _actorModel,
-        builder: (innerContext, _) {
+        builder: (context, _) {
           if (widget.scenarioController.needInitialized) {
             widget.scenarioController.initialize(
-              innerContext,
+              context,
               widget.target,
             );
           }
 
           if (widget.name != null) {
-            SceneInfo.of(innerContext).setActor(
+            SceneInfo.of(context).setActor(
               name: widget.name!,
-              context: innerContext,
+              context: context,
             );
           }
 

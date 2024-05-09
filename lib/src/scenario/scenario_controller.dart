@@ -16,8 +16,8 @@ abstract class ScenarioController {
   late SceneInfo _sceneInfo;
 
   ScenarioController? _targetController;
-
   bool _needInitialized = true;
+
   bool get needInitialized => _needInitialized;
   SceneInfo get sceneInfo => _sceneInfo;
 
