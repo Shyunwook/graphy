@@ -71,7 +71,7 @@ abstract class ScenarioController {
     final ActorModel actor = ActorInfo.of(_context).model;
 
     for (final role in roles) {
-      role.initialize(_context, actor);
+      role.initialize(actor);
       module.addPlayer(role);
     }
   }
