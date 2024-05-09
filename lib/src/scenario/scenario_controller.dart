@@ -32,7 +32,7 @@ abstract class ScenarioController {
     _sceneInfo = SceneInfo.of(context);
     _quark = Quark(create());
 
-    _setTargetScenarioController(context, target);
+    _setTargetScenarioController(target);
 
     _needInitialized = false;
   }
@@ -76,12 +76,11 @@ abstract class ScenarioController {
     }
   }
 
-  void _setTargetScenarioController(BuildContext context, String? target) {
+  void _setTargetScenarioController(String? target) {
     WidgetsBinding.instance.addPostFrameCallback(
       (timeStamp) {
         if (target != null) {
-          final BuildContext? targetContext =
-              SceneInfo.of(context).getTarget(target);
+          final BuildContext? targetContext = _sceneInfo.getTarget(target);
           if (targetContext != null) {
             _targetController = ActorInfo.of(targetContext).model.controller;
           }
