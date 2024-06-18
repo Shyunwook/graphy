@@ -8,7 +8,7 @@ class Actor extends StatefulWidget {
   final String? name;
   final String? target;
   final Offset initialPosition;
-  final ScenarioController scenarioController;
+  final ScenarioController scenario;
   final Widget child;
 
   const Actor({
@@ -16,7 +16,7 @@ class Actor extends StatefulWidget {
     this.name,
     this.target,
     this.initialPosition = Offset.zero,
-    required this.scenarioController,
+    required this.scenario,
     required this.child,
   });
 
@@ -30,7 +30,7 @@ class _ActorState extends State<Actor> {
   @override
   void initState() {
     _actorModel = ActorModel(
-      controller: widget.scenarioController,
+      controller: widget.scenario,
       initialPosition: widget.initialPosition,
     );
 
@@ -44,8 +44,8 @@ class _ActorState extends State<Actor> {
       child: ListenableBuilder(
         listenable: _actorModel,
         builder: (context, _) {
-          if (widget.scenarioController.needInitialized) {
-            widget.scenarioController.initialize(
+          if (widget.scenario.needInitialized) {
+            widget.scenario.initialize(
               context,
               widget.target,
             );
@@ -62,7 +62,7 @@ class _ActorState extends State<Actor> {
             left: _actorModel.currentPosition.dx,
             top: _actorModel.currentPosition.dy,
             child: RawGestureDetector(
-              gestures: widget.scenarioController.gestures,
+              gestures: widget.scenario.gestures,
               child: widget.child,
             ),
           );

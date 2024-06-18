@@ -24,13 +24,14 @@ class _HomeScreenState extends State<HomeScreen> {
         actors: [
           Actor(
             name: 'BOBBY',
-            scenarioController: s1,
+            scenario: s1,
             child: const EmptyChild(),
           ),
           Actor(
+            name: 'jaro',
             target: 'BOBBY',
             initialPosition: const Offset(200, 0),
-            scenarioController: s2,
+            scenario: s2,
             child: const EmptyChild(),
           ),
         ],
@@ -42,16 +43,22 @@ class _HomeScreenState extends State<HomeScreen> {
 class BobbyScenario extends ScenarioController {
   @override
   Scenario create() {
-    Scenario horizontalDragHorizontalMove = generateWithModule(
-      Detectors().accelerometer().toList(),
-      AccelerometerXModule(
-        min: 0,
-        max: 200,
-      ),
-      Roles().moveHorizontal().toList(),
-    );
+    var sign = GestureSign.dragHorizontal();
+    var roles =
+        Roles().moveHorizontal().moveHorizontal().moveHorizontal().toList();
 
-    return horizontalDragHorizontalMove;
+    var detector = Detectors().accelerometer().dragGesture().toList();
+    var module = DragHorizontalModule();
+
+    var s1 =
+        generate(Sign(detector: DragGestureDetector(), module: module), roles);
+    var s2 =
+        generate(Sign(detector: DragGestureDetector(), module: module), roles);
+
+    return Combine.next([s1, s2]);
+
+    return generate(
+        Sign(detector: DragGestureDetector(), module: module), roles);
   }
 }
 
@@ -60,7 +67,7 @@ class BobbyScenario2 extends ScenarioController {
   Scenario create() {
     Scenario horizontalDragHorizontalMove = generate(
       GestureSign.dragHorizontal(min: 0, max: 400),
-      [],
+      Roles().moveHorizontal().toList(),
     );
 
     return horizontalDragHorizontalMove;
